@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="main.css" rel="stylesheet">
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <title>Rental Equipment Tracker</title>
+  </head>
+  <body>
+    <div class="mui-container">
+        <h1 class="mui--text-center">Rental Equipment Inventory Tracker</h1>
+        <h2>Add Rental Item</h2>
+        <form id="equipment-form">
+            <div class="mui-textfield">
+                <input type="text" id="item" placeholder="Item">
+            </div>
+            <div class="mui-textfield">
+                <input type="number" id="total" placeholder="Total" min="1" max="100">
+            </div>
+            <div class="mui-textfield">
+                <input type="number" id="service" placeholder="Needs Servicing" min="0" max="100">
+            </div>
+            <div class="mui-textfield">
+                <input type="number" id="in-use" placeholder="In Use" min="0" max="100">
+            </div>
+            <div class="mui-textfield">
+                <input type="number" id="rentable" placeholder="Rentable Total" min="1" max="100">
+            </div>
+            <div>
+                <input type="submit" class="mui-btn mui-btn--large mui-btn--primary mui-btn--raised item-submit" value="submit">
+            </div>
+        </form>
+        <table class="mui-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Total</th>
+                    <th>Needs Servicing</th>
+                    <th>In Use</th>
+                    <th>Rentable</th>
+                    <th>Edit / Remove</th>
+                </tr>
+            </thead>
+            <tbody id="rental-list"></tbody>
+        </table>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
