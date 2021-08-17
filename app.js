@@ -17,12 +17,12 @@ class UI {
         const row = document.createElement('tr');
         //Insert columns
         row.innerHTML = `
-        <td>${rentalItem.item}</td>
-        <td>${rentalItem.total}</td>
-         <td>${rentalItem.serviceNum}</td>
-        <td>${rentalItem.useNum}</td>
-        <td>${rentalItem.rentNum}</td>
-        <td><button class="mui-btn mui-btn--small mui-btn--primary">Edit</button><button class="mui-btn mui-btn--small mui-btn--fab mui-btn--danger delete-button">X</button></td>
+        <td class="item-data">${rentalItem.item}</td>
+        <td class="item-data">${rentalItem.total}</td>
+        <td class="item-data">${rentalItem.serviceNum}</td>
+        <td class="item-data">${rentalItem.useNum}</td>
+        <td class="item-data">${rentalItem.rentNum}</td>
+        <td><button class="mui-btn mui-btn--small mui-btn--primary edit-button">Edit</button><button class="mui-btn mui-btn--small mui-btn--fab mui-btn--danger delete-button">X</button></td>
         `;
    
         list.appendChild(row);
@@ -50,6 +50,16 @@ class UI {
     deleteRentalItem(target) {
         if(target.className === 'mui-btn mui-btn--small mui-btn--fab mui-btn--danger delete-button'){
             target.parentElement.parentElement.remove();
+        }
+    }
+
+    editRentalItem(target) {
+        if(target.className ==='mui-btn mui-btn--small mui-btn--primary edit-button'){
+            let itemCells = target.parentElement.parentElement.querySelectorAll('.item-data');
+            //Iterate to allow data edit
+            itemCells[0].contentEditable = true;
+            console.log(itemCells);
+            console.log(itemCells[0].isContentEditable);
         }
     }
 
@@ -113,3 +123,13 @@ document.querySelector('#rental-list').addEventListener('click', function(e){
 })
 
 //Even Listener Edit Rental Item
+document.querySelector('#rental-list').addEventListener('click', function(e){
+    //Insantiate UI
+    const ui = new UI();
+
+    ui.editRentalItem(e.target);
+
+    
+
+    e.preventDefault();
+})
