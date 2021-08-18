@@ -1,3 +1,7 @@
 .item-submit{
     width: 100%;
 }
+
+.edit-data{
+    border: solid #ff0000;
+}

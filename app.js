@@ -57,9 +57,16 @@ class UI {
         if(target.className ==='mui-btn mui-btn--small mui-btn--primary edit-button'){
             let itemCells = target.parentElement.parentElement.querySelectorAll('.item-data');
             //Iterate to allow data edit
-            itemCells[0].contentEditable = true;
-            console.log(itemCells);
-            console.log(itemCells[0].isContentEditable);
+            itemCells.forEach(item => {
+                item.contentEditable = true;
+                item.classList.add('edit-data');
+            });
+            //
+
+            //Save table edit
+            
+            //Validate table data to preserve type
+
         }
     }
 
